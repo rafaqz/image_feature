@@ -30,24 +30,27 @@ function off_image_feature_field_default_field_instances() {
 function off_image_feature_field_definition(&$field_instances, $entity_type, $bundle) {
   // Exported field_instance: 'ENTITY_TYPE-BUNDLE-field_image'
   $field_instances["$entity_type-$bundle-field_image"] = array(
-    'bundle' => $bundle,
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => '',
+          'image_style' => 'medium',
         ),
         'type' => 'image',
-        'weight' => 3,
+        'weight' => 0,
       ),
       'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => 'content',
+          'image_style' => 'thumbnail',
+        ),
+        'type' => 'image',
         'weight' => 0,
       ),
     ),
