@@ -30,7 +30,7 @@ function off_image_feature_field_default_field_instances() {
 function off_image_feature_field_definition(&$field_instances, $entity_type, $bundle) {
   // Exported field_instance: 'ENTITY_TYPE-BUNDLE-field_image'
   $field_instances["$entity_type-$bundle-field_image"] = array(
-    'bundle' => 'news',
+    'bundle' => $bundle,
     'deleted' => 0,
     'description' => '',
     'display' => array(
