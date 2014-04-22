@@ -1,0 +1,10 @@
+name = OFF Image Feature
+core = 7.x
+package = Collabco
+dependencies[] = features
+dependencies[] = image
+dependencies[] = media
+features[features_api][] = api:2
+features[field_base][] = field_image
+features[field_instance][] = node-news-field_image
+project path = profiles/collabco/modules/features
