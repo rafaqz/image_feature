@@ -40,7 +40,7 @@ function off_image_feature_field_definition(&$field_instances, $entity_type, $bu
           'image_link' => '',
           'image_style' => 'medium',
         ),
-        'type' => 'image',
+        'type' => 'hidden',
         'weight' => 0,
       ),
       'teaser' => array(
