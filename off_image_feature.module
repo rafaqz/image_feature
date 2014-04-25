@@ -42,7 +42,7 @@ function off_image_feature_features_pipe_alter(&$pipe, $data, $export) {
 
 
 /**
- * Returns an array of entity types that are enabled via collabco integration.
+ * Returns an array of entity types with image fields enabled via collabco integration.
  */
 function off_image_feature_get_entity_types_with_image() {
   // Find all Commons Entity integrations.
@@ -54,7 +54,8 @@ function off_image_feature_get_entity_types_with_image() {
     }
     foreach ($integration['entity'] as $entity_type) {
       foreach ($entity_type as $bundle => $options) {
-        if (!isset($options['exclude_image']) || $options['exclude_image'] == FALSE) {
+        // Disabled by default.
+        if (isset($options['image']['enabled']) && ($options['image']['enabled'] === TRUE)) {
           $entities['node'][$bundle] = $options;
         }
       }
