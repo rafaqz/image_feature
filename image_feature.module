@@ -7,14 +7,14 @@
 /**
  * Implements hook_system_info_alter().
  */
-function off_image_feature_system_info_alter(&$info, $file, $type) {
+function image_feature_system_info_alter(&$info, $file, $type) {
   // We dynamically add field_image to content types that implement
   // integration. We must add a corresponding line for each field
-  // instance to off_image_feature.info so that Features is aware of the instance
+  // instance to image_feature.info so that Features is aware of the instance
   // and can sucessfully revert the field_instance component back to its
   // default state.
-  if ($file->name == 'off_image_feature') {
-    $entity_types = off_image_feature_get_entity_types_with_image();
+  if ($file->name == 'image_feature') {
+    $entity_types = image_feature_get_entity_types_with_image();
     if (!empty($entity_types)) {
       foreach ($entity_types as $entity_type => $bundles) {
         foreach(array_keys($bundles) as $bundle) {
@@ -28,7 +28,7 @@ function off_image_feature_system_info_alter(&$info, $file, $type) {
 /**
  * Implements hook_features_pipe_alter().
  */
-function off_image_feature_features_pipe_alter(&$pipe, $data, $export) {
+function image_feature_features_pipe_alter(&$pipe, $data, $export) {
   if (!empty($pipe['field_instance'])) {
     foreach ($pipe['field_instance'] as $delta => $value) {
       $args = explode('-', $value);
@@ -44,9 +44,9 @@ function off_image_feature_features_pipe_alter(&$pipe, $data, $export) {
 /**
  * Returns an array of entity types with image fields enabled via collabco integration.
  */
-function off_image_feature_get_entity_types_with_image() {
+function image_feature_get_entity_types_with_image() {
   // Find all Commons Entity integrations.
-  $integrations = module_invoke_all('collabco_integration');
+  $integrations = module_invoke_all('integration');
   $entities = array();
   foreach ($integrations as $integration) { 
     if (empty($integration['entity']['node'])) {

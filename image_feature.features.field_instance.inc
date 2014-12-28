@@ -1,21 +1,21 @@
 <?php
 /**
  * @file
- * off_image_feature.features.field_instance.inc
+ * image_feature.features.field_instance.inc
  */
 
 /**
  * Implements hook_field_default_field_instances().
  */
-function off_image_feature_field_default_field_instances() {
+function image_feature_field_default_field_instances() {
   $field_instances = array();
 
   // Get a list of content types that should have the field_topics field added.
-  $entity_types = off_image_feature_get_entity_types_with_image();
+  $entity_types = image_feature_get_entity_types_with_image();
   if (!empty($entity_types)) {
     foreach ($entity_types as $entity_type => $bundles) {
       foreach(array_keys($bundles) as $bundle) {
-        off_image_feature_field_definition($field_instances, $entity_type, $bundle);
+        image_feature_field_definition($field_instances, $entity_type, $bundle);
       }
     }
   }
@@ -27,7 +27,7 @@ function off_image_feature_field_default_field_instances() {
   return $field_instances;
 }
 
-function off_image_feature_field_definition(&$field_instances, $entity_type, $bundle) {
+function image_feature_field_definition(&$field_instances, $entity_type, $bundle) {
   // Exported field_instance: 'ENTITY_TYPE-BUNDLE-field_image'
   $field_instances["$entity_type-$bundle-field_image"] = array(
     'bundle' => $bundle,
