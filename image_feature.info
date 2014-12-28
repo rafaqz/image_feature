@@ -1,6 +1,6 @@
-name = OFF Image Feature
+name = Image Feature
 core = 7.x
-package = Collabco
+package = Features
 dependencies[] = features
 dependencies[] = image
 dependencies[] = media
