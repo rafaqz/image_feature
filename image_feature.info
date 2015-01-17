@@ -14,4 +14,3 @@ features[og_features_permission][] = node:private_group:update field_image field
 features[og_features_permission][] = node:private_group:view field_image field
 features[og_features_permission][] = node:project:update field_image field
 features[og_features_permission][] = node:project:view field_image field
-project path = profiles/collabco/modules/features
